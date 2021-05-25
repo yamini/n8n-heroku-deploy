@@ -2,7 +2,7 @@
 
 > Forked from https://github.com/sarveshpro/n8n-heroku and https://github.com/UnlyEd/n8n-heroku-demo  
 
-![Docker](https://github.com/yamini/n8n-heroku-deploy/workflows/Docker/badge.svg) ![Heroku](https://github.com/yamini/n8n-heroku-deploy/workflows/Heroku/badge.svg)
+<!-- ![Docker](https://github.com/yamini/n8n-heroku-deploy/workflows/Docker/badge.svg) ![Heroku](https://github.com/yamini/n8n-heroku-deploy/workflows/Heroku/badge.svg) //-->
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/yamini/n8n-heroku-deploy)
 
@@ -20,6 +20,8 @@ This is a [Heroku](https://heroku.com/) focused container implementation for the
 
 ## Requirements
 * Heroku CLI
+
+---
 
 ## Setup
 
