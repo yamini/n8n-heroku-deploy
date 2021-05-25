@@ -1,12 +1,12 @@
-# n8n-heroku-demo (forked by Unly)
+# n8n-heroku-deploy (forked by yamini)
 
-> Fork: This is a fork from https://github.com/sarveshpro/n8n-heroku. We forked to provide a working setup for Heroku, because it [wasn't working](https://github.com/sarveshpro/n8n-heroku/issues/16). _(works as of December 18, 2020)_
+> Forked from https://github.com/sarveshpro/n8n-heroku and https://github.com/UnlyEd/n8n-heroku-demo  
 
-![Docker](https://github.com/UnlyEd/n8n-heroku-demo/workflows/Docker/badge.svg) ![Heroku](https://github.com/UnlyEd/n8n-heroku-demo/workflows/Heroku/badge.svg)
+![Docker](https://github.com/yamini/n8n-heroku-deploy/workflows/Docker/badge.svg) ![Heroku](https://github.com/yamini/n8n-heroku-deploy/workflows/Heroku/badge.svg)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/UnlyEd/n8n-heroku-demo)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/yamini/n8n-heroku-deploy)
 
-New method, just click, configure and get your n8n running.
+Just click, configure and get your n8n running.
 Also, now set app stack to container and simply connect this Github repo and deploy, heroku uses default configuration from app.json
 
 default basic auth is user:pass
@@ -16,7 +16,7 @@ You can see the online demo running on Heroku at https://unly-n8n-demo.herokuapp
 
 ### n8n(Nodemation) - Free and Open Workflow Automation Tool
 
-This is a [Heroku](https://heroku.com/) focused container implementation for the [n8n Automation Tool](https://n8n.io/). Just connect your fork of this repo to heroku and let it work as a charm!
+This is a [Heroku](https://heroku.com/) focused container implementation for the [n8n Automation Tool](https://n8n.io/). Just connect your fork of this repo to heroku and let it work its charm!
 
 ## Requirements
 * Heroku CLI
