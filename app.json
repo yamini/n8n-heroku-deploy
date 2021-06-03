@@ -31,6 +31,14 @@
       "PGSSLMODE": {
         "description": "Prevent postgres initialization error",
         "value": "no-verify"
+      },
+      "N8N_ENCRYPTION_KEY": {
+        "description": "Prevent credentials error",
+        "value": "random-string"
+      },
+      "WEBHOOK_TUNNEL_URL": {
+        "description": "Set custom webhook url",
+        "value": "heroku-app-url"
       }
     },
     "formation": {
