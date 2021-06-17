@@ -1,4 +1,4 @@
-# n8n-heroku-deploy (forked by yamini)
+# n8n-heroku-deploy
 
 > Forked from https://github.com/sarveshpro/n8n-heroku and https://github.com/UnlyEd/n8n-heroku-demo  
 
@@ -6,113 +6,34 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/yamini/n8n-heroku-deploy)
 
-Just click, configure and get your n8n running.
-Also, now set app stack to container and simply connect this Github repo and deploy, heroku uses default configuration from app.json
 
-default basic auth is user:pass
+### What does this repo do?
+This is a [Heroku](https://heroku.com/) focused container implementation for [n8n](https://n8n.io/). Just connect your fork of this repo to heroku and let it work its charm!
 
-### Online demo
-You can see the online demo running on Heroku at https://unly-n8n-demo.herokuapp.com/ (credentials: `user`/`pass`)
 
-### n8n(Nodemation) - Free and Open Workflow Automation Tool
+### Updates & fixes to original repo
 
-This is a [Heroku](https://heroku.com/) focused container implementation for the [n8n Automation Tool](https://n8n.io/). Just connect your fork of this repo to heroku and let it work its charm!
+1. Updated node.js and n8n versions. To update it yourself, fork this repo and modify the Dockerfile
 
-## Requirements
-* Heroku CLI
+![Dockerfile screenshot](https://p132.p1.n0.cdn.getcloudapp.com/items/z8uO6xnw/9245aaf4-c6bd-41dc-93e4-daa94aca8644.jpg?v=662341673999c036dfe6cc0eaae9104f)
+ 
+3. Updated app.json to fix some bugs. 
+4. Before you create the app in Heroku, you will need to update the following variables in the UI (or you can do it in app.json before deploying to Heroku)
 
----
+* Change user name and password from the default user/pass. 
+* Generate a random string and use for the variable N8N_ENCRYPTION_KEY. This prevents a credentials error each time you fire up n8n. [Details](https://www.notion.so/n8n-to-heroku-648b270a92524949a5f45bf1261c63f1#3386127000fc4de4837f6c8e907fc7d9). Random string generator: https://www.random.org/strings/?mode=advanced 
+*  Update WEBHOOK_TUNNEL_URL to match your heroku app url. The format is usually your-app-name.herokuapp.com. This fixes the problem with webhook urls generated with "localhost" instead of your domain name. More info here: https://github.com/sarveshpro/n8n-heroku/issues/16#issuecomment-779489872 
 
-## Setup
 
-this is old setup guide not required now, connect this Github repo to heroku to auto configure. or click the above button to deploy without Github.
+### How to
+2 easy steps: 
+1. Fork the repo then make version or config changes. 
+2. Next, click the "Deploy to Heroku" button, log in, configure the app and environment variables. That's it!
 
-### STEP 1: CHANGE your App Stack to container
-you can change your app's stack using heroku cli, make sure you have heroku cli installed.
 
-#### login into heroku account
-    heroku login
+### What is n8n (Nodemation?)
+[n8n](https://n8n.io/) is a fair code, workflow automation tool that allows you to connect any API with another, without having to do much coding. Think of it as Zapier on steroids, without the price tag. They also have a fully managed cloud version that's extremely affordable. This heroku build is great for evaluating n8n, sharing workflows with team members and getting to know the internals, but I'd encourage you to sign up and support n8n once you're done testing (I'm not an affiliate, just a fan.)
 
-#### change app stack
-    heroku stack:set contaner --app APP_NAME
-replace APP_NAME with your heroku app name
-
-### STEP 2: ADD Config Vars for enabling basic authentication (Optional)
-It's recommended that you enable basic authentication when deployingn n8n on web. You need to set the following Environment Variables(Config Vars) in your App settings.
-
-    N8N_BASIC_AUTH_ACTIVE=true
-    N8N_BASIC_AUTH_USER=SET_USERNAME
-    N8N_BASIC_AUTH_PASSWORD=SET_PASSWORD
-    
-Using filesystem/sqlite as storage will destroy any workflows on new builds/releases it it recommended to use mongodb or postgreSQL as the drivers are built into the code.
-
-    DB_TYPE=mongodb
-    DB_MONGODB_CONNECTION_URL=mongodb://MONGODB_USERNAME:MONGODB_PASSWORD@HOST:PORT/MONGODB_DATABASE
-
-you will get the connection string in the heroku mongodb addon or any service you choose. using heroku addons is recommended as they auto configure ENV Variables for you. just copy MONGODB_URI to DB_MONGODB_CONNECTION_URL. that's it.
-
-Same process is to be followed for using postgreSQL.
-    
-    DB_TYPE=postgresdb
-    DB_POSTGRESDB_HOST=POSTGRES_HOST
-    DB_POSTGRESDB_PORT=POSTGRES_PORT
-    DB_POSTGRESDB_DATABASE=POSTGRES_DB
-    DB_POSTGRESDB_USER=POSTGRES_USER
-    DB_POSTGRESDB_PASSWORD=POSTGRES_PASSWORD
-    
-
-### STEP 3: DONE! Now CONNECT Github repo and Deploy.
-
-## Using Container Registry
-
-you can also deploy this project using container registry (requires aditional requirements installed). Just clone/download this repository on your local machine.
-
-### Additional Requirements (for building on local)
-* docker
-* docker-compose
-
-### Steps
-cd into your project directory
-
-    cd n8n-heroku-demo/
-
-login into heroku account
-    
-    heroku login
-
-create heroku app
-
-    heroku create APP_NAME
-
-change app stack
-
-    heroku stack:set container --app APP_NAME
-    
-set config vars(optional)
-
-    heroku config:set N8N_BASIC_AUTH_ACTIVE=true
-    heroku config:set N8N_BASIC_AUTH_USER=SET_USERNAME
-    heroku config:set N8N_BASIC_AUTH_PASSWORD=SET_PASSWORD
-
-Login the container
-
-    heroku container:login
-
-build and push container image to heroku
-
-    heroku container:push web --app APP_NAME
-    
-release new build
-
-    heroku container:release web --app APP_NAME
-    
-<br />
-
-Maybe now you can specify which N8N version to install by Setting a Environment Variable N8N_VERSION or with a build time argument of the same. Not tested yet though, create an issue if it does't work. CI is passing so it is working correctly with default values.
-
-_Update - To set n8n version you can pass a argument when deploying using container registry_
-
-    heroku container:push web --arg N8N_VERSION=0.60.0 --app APP_NAME
 
 ### Sources
 
