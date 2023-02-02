@@ -4,7 +4,7 @@
 
  ![Docker](https://github.com/yamini/n8n-heroku-deploy/workflows/Docker/badge.svg) ![Heroku](https://github.com/yamini/n8n-heroku-deploy/workflows/Heroku/badge.svg)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/yamini/n8n-heroku-deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/man0l/n8n-heroku-deploy)
 
 
 ### What does this repo do?
